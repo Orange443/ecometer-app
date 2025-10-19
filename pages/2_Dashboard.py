@@ -4,6 +4,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from languages import LANGUAGES
 
+if 'language' not in st.session_state:
+    st.session_state.language = 'English'
+
 lang = LANGUAGES[st.session_state.language]
 
 st.image("ecometer.png", width=100)

@@ -4,6 +4,9 @@ import os
 from summarizer import get_summary
 from languages import LANGUAGES
 
+if 'language' not in st.session_state:
+    st.session_state.language = 'English'
+
 lang = LANGUAGES[st.session_state.language]
 
 st.title("AI Summarizer")

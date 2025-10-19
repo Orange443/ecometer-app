@@ -1,9 +1,14 @@
 import streamlit as st
 import pandas as pd
+import os
 from languages import LANGUAGES
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Create data directory if it doesn't exist
+if not os.path.exists("data"):
+    os.makedirs("data")
 
 st.set_page_config(
     page_title="EcoMeter for Schools",

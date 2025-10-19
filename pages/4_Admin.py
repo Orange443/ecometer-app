@@ -4,6 +4,9 @@ import os
 import shutil
 from languages import LANGUAGES
 
+# Create data directory if it doesn't exist
+if not os.path.exists("data"):
+    os.makedirs("data")
 
 if "language" not in st.session_state:
     st.session_state.language = "English"

@@ -3,14 +3,14 @@
 import os
 from groq import Groq
 
-def get_summary(data: str) -> str:
+def get_summary(data: str, language: str) -> str:
     """Generates a summary of the given data using the Groq API."""
 
     client = Groq(
         api_key=os.environ.get("GROQ_API_KEY"),
     )
 
-    prompt = f"""Please summarize the following data from the EcoMeter for Schools app. 
+    prompt = f"""Please summarize the following data from the EcoMeter for Schools app in {language}.
     The summary should be easy for students and teachers to understand. 
     Highlight key trends and insights.
 

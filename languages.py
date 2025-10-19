@@ -59,6 +59,7 @@ LANGUAGES = {
         "local_deployment_tip": "- Local Deployment: While this example uses an API, you can also run smaller, open-source models locally using libraries like transformers and ctransformers. However, this requires a powerful computer with a dedicated GPU.",
         "select_page": "Select a lang.",
         "reset": "Reset",
+        "ai_summarizer_title": "AI Summarizer",
     },
     "Gujarati": {
         "app_title": "શાળાઓ માટે ઇકોમીટર",
@@ -119,5 +120,6 @@ LANGUAGES = {
         "local_deployment_tip": "- સ્થાનિક જમાવટ: જ્યારે આ ઉદાહરણ API નો ઉપયોગ કરે છે, ત્યારે તમે ટ્રાન્સફોર્મર્સ અને ctransformers જેવી લાઇબ્રેરીઓનો ઉપયોગ કરીને સ્થાનિક રીતે નાના, ઓપન-સોર્સ મોડલ્સ પણ ચલાવી શકો છો. જો કે, આ માટે સમર્પિત GPU સાથે શક્તિશાળી કમ્પ્યુટરની જરૂર છે.",
         "select_page": "એક ભાષા પસંદ કરો.",
         "reset": "રીસેટ",
+        "ai_summarizer_title": "AI સારાંશકર્તા",
     },
 }

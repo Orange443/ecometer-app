@@ -28,9 +28,8 @@ else:
         except Exception as e:
             st.error(f"An error occurred: {e}")
 
-st.markdown("### Best Practices")
-st.markdown("""- **Caching:** Summaries are cached to avoid redundant API calls and improve performance.
-- **Asynchronous Requests:** For more complex applications, consider using asynchronous requests to avoid blocking the Streamlit app.
-- **Clear Prompts:** Provide clear and concise prompts to the LLM to get the best results.
-- **Local Deployment:** While this example uses an API, you can also run smaller, open-source models locally using libraries like `transformers` and `ctransformers`. However, this requires a powerful computer with a dedicated GPU.
-""")
+st.markdown(f"### {lang['best_practices']}")
+st.markdown(lang['caching_tip'])
+st.markdown(lang['async_tip'])
+st.markdown(lang['prompts_tip'])
+st.markdown(lang['local_deployment_tip'])

@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 from languages import LANGUAGES
 
+st.set_page_config(
+    page_title="EcoMeter for Schools",
+    page_icon="ecometer.png",
+    layout="wide",
+)
+
 if 'language' not in st.session_state:
     st.session_state.language = 'English'
 
@@ -39,18 +45,6 @@ with col1:
 
 # --- Manage Data Entries ---
 with col2:
-    st.subheader(lang["verify_data"])
-    try:
-        data_entries = pd.read_csv("data/data_entries.csv")
-        st.dataframe(data_entries)
-        entry_to_verify = st.selectbox("Select entry to verify", data_entries.index)
-        if st.button("Verify"):
-            data_entries.loc[entry_to_verify, 'Verified'] = True
-            data_entries.to_csv("data/data_entries.csv", index=False)
-            st.success("Entry verified!")
-    except FileNotFoundError:
-        st.warning("No data entries found.")
-
     st.subheader(lang["download_data"])
     @st.cache_data
     def convert_df_to_csv(df):
@@ -75,3 +69,17 @@ with col2:
                 st.success(lang["entries_cleared"])
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
+st.hr()
+
+st.subheader(lang["verify_data"])
+try:
+    data_entries = pd.read_csv("data/data_entries.csv")
+    st.dataframe(data_entries)
+    entry_to_verify = st.selectbox("Select entry to verify", data_entries.index)
+    if st.button("Verify"):
+        data_entries.loc[entry_to_verify, 'Verified'] = True
+        data_entries.to_csv("data/data_entries.csv", index=False)
+        st.success("Entry verified!")
+except FileNotFoundError:
+    st.warning("No data entries found.")

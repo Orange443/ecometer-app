@@ -106,7 +106,11 @@ with st.form("data_entry_form"):
 # --- Form Reset ---
 def reset_form():
     """Resets the data entry form fields."""
-    st.session_state.school = ""
+    try:
+        schools = pd.read_csv("data/schools.csv")
+        st.session_state.school = schools["School"].tolist()[0]
+    except (FileNotFoundError, IndexError):
+        st.session_state.school = ""
     st.session_state.activity_type = lang["electricity"]
     st.session_state.quantity = 0.0
 

@@ -30,7 +30,7 @@ lang = get_language()
 
 st.title(lang["app_header"])
 
-st.sidebar.success("Select a page above.")
+st.sidebar.success(lang["select_page"])
 
 st.markdown(f"### {lang['how_to_toggle_themes']}")
 st.markdown(f"1. {lang['theme_instructions_1']}")

@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import shutil
 from languages import LANGUAGES
 
 st.set_page_config(
@@ -69,14 +70,16 @@ with col2:
     if st.button(lang["clear_entries"]):
         if st.checkbox(lang["clear_entries_confirmation"]):
             try:
-                if os.path.exists("data/data_entries.csv"):
-                    pd.DataFrame(
-                        columns=["Activity", "Quantity", "School", "Verified"]
-                    ).to_csv("data/data_entries.csv", index=False)
+                data_folder = "data"
+                if os.path.exists(data_folder):
+                    for filename in os.listdir(data_folder):
+                        file_path = os.path.join(data_folder, filename)
+                        if os.path.isfile(file_path):
+                            os.remove(file_path)
                     st.cache_data.clear()  # Clear Streamlit cache for fresh reload
-                    st.success(lang["entries_cleared"])
+                    st.success(lang["all_entries_cleared"])
                 else:
-                    st.warning("Data entries file not found. Nothing to clear.")
+                    st.warning("Data folder not found. Nothing to clear.")
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 

@@ -1,0 +1,9 @@
+/* styles.css */
+
+.dashboard-container {
+    border: 1px solid #e6e6e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}

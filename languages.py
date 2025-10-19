@@ -58,6 +58,7 @@ LANGUAGES = {
         "prompts_tip": "- Clear Prompts: Provide clear and concise prompts to the LLM to get the best results.",
         "local_deployment_tip": "- Local Deployment: While this example uses an API, you can also run smaller, open-source models locally using libraries like transformers and ctransformers. However, this requires a powerful computer with a dedicated GPU.",
         "select_page": "Select a lang.",
+        "reset": "Reset",
     },
     "Gujarati": {
         "app_title": "શાળાઓ માટે ઇકોમીટર",
@@ -99,7 +100,7 @@ LANGUAGES = {
         "entries_cleared": "બધી એન્ટ્રીઓ સાફ થઈ ગઈ છે.",
         "school_added": "શાળા સફળતાપૂર્વક ઉમેરાઈ!",
         "school_removed": "શાળા સફળતાપૂર્વક દૂર થઈ!",
-        "all_entries_cleared": "બધી ડેટા એન્ટ્રીઓ સાફ થઈ ગઈ છે."
+        "all_entries_cleared": "બધી ડેટા એન્ટ્રીઓ સાફ થઈ ગઈ છે.",
         "theme_instructions_1": "ઉપરના જમણા ખૂણામાં સેટિંગ્સ મેનૂ (ત્રણ બિંદુઓ) પર ક્લિક કરો.",
         "theme_instructions_2": "'સેટિંગ્સ' પસંદ કરો.",
         "theme_instructions_3": "'થીમ' ડ્રોપડાઉનમાંથી તમારી ઇચ્છિત થીમ પસંદ કરો.",
@@ -117,5 +118,6 @@ LANGUAGES = {
         "prompts_tip": "- સ્પષ્ટ પ્રોમ્પ્ટ્સ: શ્રેષ્ઠ પરિણામો મેળવવા માટે LLM ને સ્પષ્ટ અને સંક્ષિપ્ત પ્રોમ્પ્ટ્સ પ્રદાન કરો.",
         "local_deployment_tip": "- સ્થાનિક જમાવટ: જ્યારે આ ઉદાહરણ API નો ઉપયોગ કરે છે, ત્યારે તમે ટ્રાન્સફોર્મર્સ અને ctransformers જેવી લાઇબ્રેરીઓનો ઉપયોગ કરીને સ્થાનિક રીતે નાના, ઓપન-સોર્સ મોડલ્સ પણ ચલાવી શકો છો. જો કે, આ માટે સમર્પિત GPU સાથે શક્તિશાળી કમ્પ્યુટરની જરૂર છે.",
         "select_page": "એક ભાષા પસંદ કરો.",
+        "reset": "રીસેટ",
     },
 }

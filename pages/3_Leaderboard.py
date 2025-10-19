@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 from languages import LANGUAGES
 
-st.set_page_config(
-    page_title="EcoMeter for Schools",
-    page_icon="ecometer.png",
-    layout="wide",
-)
 
 if 'language' not in st.session_state:
     st.session_state.language = 'English'
@@ -27,25 +22,26 @@ try:
     leaderboard = df.groupby("School")["CO2 Emissions"].sum().reset_index()
     leaderboard = leaderboard.sort_values(by="CO2 Emissions", ascending=True)
     leaderboard[lang["rank"]] = range(1, len(leaderboard) + 1)
-    leaderboard.loc[leaderboard[lang["rank"]] == 1, lang["rank"]] = "🥇"
-    leaderboard.loc[leaderboard[lang["rank"]] == 2, lang["rank"]] = "🥈"
-    leaderboard.loc[leaderboard[lang["rank"]] == 3, lang["rank"]] = "🥉"
+    leaderboard["Medal"] = ""
+    leaderboard.loc[leaderboard[lang["rank"]] == 1, "Medal"] = "🥇"
+    leaderboard.loc[leaderboard[lang["rank"]] == 2, "Medal"] = "🥈"
+    leaderboard.loc[leaderboard[lang["rank"]] == 3, "Medal"] = "🥉"
 
     col1, col2, col3 = st.columns(3)
 
     if len(leaderboard) > 0:
         with col1:
-            st.subheader(f"{leaderboard.iloc[0][lang['rank']]} {leaderboard.iloc[0]['School']}")
+            st.subheader(f"{leaderboard.iloc[0]['Medal']} {leaderboard.iloc[0]['School']}")
             st.metric(label=lang["co2_emissions"], value=f"{leaderboard.iloc[0]['CO2 Emissions']:.2f} kg")
 
     if len(leaderboard) > 1:
         with col2:
-            st.subheader(f"{leaderboard.iloc[1][lang['rank']]} {leaderboard.iloc[1]['School']}")
+            st.subheader(f"{leaderboard.iloc[1]['Medal']} {leaderboard.iloc[1]['School']}")
             st.metric(label=lang["co2_emissions"], value=f"{leaderboard.iloc[1]['CO2 Emissions']:.2f} kg")
 
     if len(leaderboard) > 2:
         with col3:
-            st.subheader(f"{leaderboard.iloc[2][lang['rank']]} {leaderboard.iloc[2]['School']}")
+            st.subheader(f"{leaderboard.iloc[2]['Medal']} {leaderboard.iloc[2]['School']}")
             st.metric(label=lang["co2_emissions"], value=f"{leaderboard.iloc[2]['CO2 Emissions']:.2f} kg")
 
     st.dataframe(leaderboard.set_index(lang["rank"]))

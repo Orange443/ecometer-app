@@ -99,7 +99,7 @@ LANGUAGES = {
         "entries_cleared": "બધી એન્ટ્રીઓ સાફ થઈ ગઈ છે.",
         "school_added": "શાળા સફળતાપૂર્વક ઉમેરાઈ!",
         "school_removed": "શાળા સફળતાપૂર્વક દૂર થઈ!",
-        "all_entries_cleared": "બધી ડેટા એન્ટ્રીઓ સાફ થઈ ગઈ છે.",,
+        "all_entries_cleared": "બધી ડેટા એન્ટ્રીઓ સાફ થઈ ગઈ છે."
         "theme_instructions_1": "ઉપરના જમણા ખૂણામાં સેટિંગ્સ મેનૂ (ત્રણ બિંદુઓ) પર ક્લિક કરો.",
         "theme_instructions_2": "'સેટિંગ્સ' પસંદ કરો.",
         "theme_instructions_3": "'થીમ' ડ્રોપડાઉનમાંથી તમારી ઇચ્છિત થીમ પસંદ કરો.",

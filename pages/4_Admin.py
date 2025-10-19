@@ -4,11 +4,9 @@ import os
 import shutil
 from languages import LANGUAGES
 
-st.set_page_config(
-    page_title="EcoMeter for Schools",
-    page_icon="ecometer.png",
-    layout="wide",
-)
+# Create data directory if it doesn't exist
+if not os.path.exists("data"):
+    os.makedirs("data")
 
 if "language" not in st.session_state:
     st.session_state.language = "English"
@@ -67,21 +65,14 @@ with col2:
         st.warning("No data to download.")
 
     st.subheader(lang["clear_entries"])
-    if st.button(lang["clear_entries"]):
-        if st.checkbox(lang["clear_entries_confirmation"]):
+    if st.checkbox(lang["clear_entries_confirmation"]):
+        if st.button(lang["clear_entries"]):
             try:
-                data_folder = "data"
-                if os.path.exists(data_folder):
-                    for filename in os.listdir(data_folder):
-                        file_path = os.path.join(data_folder, filename)
-                        if os.path.isfile(file_path):
-                            os.remove(file_path)
-                    st.cache_data.clear()  # Clear Streamlit cache for fresh reload
-                    st.success(lang["all_entries_cleared"])
-                else:
-                    st.warning("Data folder not found. Nothing to clear.")
-            except Exception as e:
-                st.error(f"An error occurred: {e}")
+                os.remove("data/data_entries.csv")
+                st.cache_data.clear()
+                st.success(lang["all_entries_cleared"])
+            except FileNotFoundError:
+                st.warning("No data to clear.")
 
 st.markdown("--- ")
 

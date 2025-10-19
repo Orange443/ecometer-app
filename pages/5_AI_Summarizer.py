@@ -4,11 +4,6 @@ import os
 from summarizer import get_summary
 from languages import LANGUAGES
 
-st.set_page_config(
-    page_title="EcoMeter for Schools",
-    page_icon="ecometer.png",
-    layout="wide",
-)
 
 if 'language' not in st.session_state:
     st.session_state.language = 'English'

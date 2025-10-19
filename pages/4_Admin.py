@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 from languages import LANGUAGES
 
 st.set_page_config(
@@ -8,8 +9,8 @@ st.set_page_config(
     layout="wide",
 )
 
-if 'language' not in st.session_state:
-    st.session_state.language = 'English'
+if "language" not in st.session_state:
+    st.session_state.language = "English"
 
 lang = LANGUAGES[st.session_state.language]
 
@@ -29,7 +30,9 @@ with col1:
             schools.to_csv("data/schools.csv", index=False)
             st.success(lang["school_added"])
         except FileNotFoundError:
-            pd.DataFrame([{"School": school_name}]).to_csv("data/schools.csv", index=False)
+            pd.DataFrame([{"School": school_name}]).to_csv(
+                "data/schools.csv", index=False
+            )
             st.success(lang["school_added"])
 
     st.subheader(lang["remove_school"])
@@ -46,9 +49,10 @@ with col1:
 # --- Manage Data Entries ---
 with col2:
     st.subheader(lang["download_data"])
+
     @st.cache_data
     def convert_df_to_csv(df):
-        return df.to_csv().encode('utf-8')
+        return df.to_csv().encode("utf-8")
 
     try:
         data_entries = pd.read_csv("data/data_entries.csv")
@@ -65,8 +69,14 @@ with col2:
     if st.button(lang["clear_entries"]):
         if st.checkbox(lang["clear_entries_confirmation"]):
             try:
-                pd.DataFrame(columns=["Activity", "Quantity", "School", "Verified"]).to_csv("data/data_entries.csv", index=False)
-                st.success(lang["entries_cleared"])
+                if os.path.exists("data/data_entries.csv"):
+                    pd.DataFrame(
+                        columns=["Activity", "Quantity", "School", "Verified"]
+                    ).to_csv("data/data_entries.csv", index=False)
+                    st.cache_data.clear()  # Clear Streamlit cache for fresh reload
+                    st.success(lang["entries_cleared"])
+                else:
+                    st.warning("Data entries file not found. Nothing to clear.")
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 
@@ -78,7 +88,7 @@ try:
     st.dataframe(data_entries)
     entry_to_verify = st.selectbox("Select entry to verify", data_entries.index)
     if st.button("Verify"):
-        data_entries.loc[entry_to_verify, 'Verified'] = True
+        data_entries.loc[entry_to_verify, "Verified"] = True
         data_entries.to_csv("data/data_entries.csv", index=False)
         st.success("Entry verified!")
 except FileNotFoundError:

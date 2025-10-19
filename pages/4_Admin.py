@@ -70,7 +70,7 @@ with col2:
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 
-st.hr()
+st.markdown("--- ")
 
 st.subheader(lang["verify_data"])
 try:

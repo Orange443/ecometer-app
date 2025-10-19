@@ -73,6 +73,7 @@ LANGUAGES = {
         "dashboard_title": "કાર્બન ફૂટપ્રિન્ટ ડેશબોર્ડ",
         "total_emissions": "કુલ CO₂ ઉત્સર્જન",
         "emissions_by_activity": "પ્રવૃત્તિ દ્વારા ઉત્સર્જન",
+        "emissions_by_school": "શાળા દ્વારા ઉત્સર્જન",
         "leaderboard_title": "લીડરબોર્ડ",
         "rank": "ક્રમ",
         "school": "શાળા",

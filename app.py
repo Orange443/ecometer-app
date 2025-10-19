@@ -85,7 +85,9 @@ with st.form("data_entry_form"):
             except (FileNotFoundError, IndexError):
                 st.error("CO2 factors not found. Please configure them in the data folder.")
 
-if st.button(lang["reset"]):
+def reset_form():
     st.session_state.school = ""
     st.session_state.activity_type = lang["electricity"]
     st.session_state.quantity = 0.0
+
+st.button(lang["reset"], on_click=reset_form)
